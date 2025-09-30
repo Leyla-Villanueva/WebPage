@@ -1,0 +1,11 @@
+## utilizar alpine como imagen base
+FROM alpine:latest
+
+## instalar nginx
+RUN apk --no-cache add nginx   
+## copiar el archivo de configuración personalizado
+COPY nginx.conf /etc/nginx/nginx.conf
+## copiar los archivos del sitio web al contenedor
+COPY . /usr/share/nginx/html
+## exponer el puerto 80
+EXPOSE 80
